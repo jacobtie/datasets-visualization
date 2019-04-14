@@ -26,7 +26,11 @@ function reduceByFreq(arr) {
 
 function getKeywordFreqFromSubset() {
     let keywordFreq = {"name": "Datasets", "children": []};
-
+    let allKeywords = subset.flatMap(d => d["keywords"]);
+    reduceByFreq(allKeywords).forEach(k => {
+        keywordFreq["children"].push({"name":k[0], "value":k[1]});
+    });
+    return keywordFreq;
 }
 
 function getSubjectFreqFromDatasets() {
