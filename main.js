@@ -41,3 +41,7 @@ function getSubjectFreqFromDatasets() {
     });
     return subjectFreq;
 }
+
+function selectSubject(subject) {
+    subset = datasets.filter(d => d["subject"].includes(subject));
+}
