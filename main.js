@@ -1,5 +1,7 @@
 var datasets;
 var subset;
+var subject;
+var keywords = [];
 
 fetch("datasets.json")
     .then(response => response.json())
@@ -40,4 +42,33 @@ function getSubjectFreqFromDatasets() {
         subjectFreq["children"].push({"name":s[0], "value":s[1]});
     });
     return subjectFreq;
+}
+
+function selectSubject(sub) {
+    subject = sub;
+    subset = datasets.filter(d => d["subject"].includes(subject));
+}
+
+function filterByKeywords() {
+    selectSubject(subject);
+    subset = subset.filter(d => {
+        let keep = true;
+        for (k of keywords) {
+            if (!d["keywords"].includes(k)) {
+                keep = false;
+                break;
+            }
+        }
+        return keep;
+    });
+}
+
+function selectKeyword(keyword) {
+    keywords.push(keyword);
+    filterByKeywords();
+}
+
+function unselectKeyword(keyword) {
+    keywords = keywords.filter(k => k !== keyword);
+    filterByKeywords();
 }
