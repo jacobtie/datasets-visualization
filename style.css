@@ -13,7 +13,7 @@ header {
 
 main {
     width: 100%;
-    background-color: orange;
+    background-color: black;
     flex-grow: 1;
 }
 
@@ -27,7 +27,8 @@ div#tree-diagram {
     height: 98%;
     float: left;
     margin: 5px;
-    background-color: red;
+    background-color: whitesmoke;
+    border: 1px;
 }
 
 div#scatterplot-diagram {
@@ -35,5 +36,6 @@ div#scatterplot-diagram {
     height: 98%;
     float: right;
     margin: 5px;
-    background-color: blue;
+    background-color: whitesmoke;
+    border: 1px;
 }
