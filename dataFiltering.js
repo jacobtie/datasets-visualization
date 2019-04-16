@@ -1,9 +1,11 @@
+// Selects a subject and filters subset
 function selectSubject(sub) {
     subject = sub;
     keywords = [];
     subset = datasets.filter(d => d["subject"].includes(subject));
 }
 
+// Refilters the dataset into subset with the current subject and keywords
 function filterByKeywords() {
     subset = datasets.filter(d => d["subject"].includes(subject));
     subset = subset.filter(d => {
@@ -18,16 +20,19 @@ function filterByKeywords() {
     });
 }
 
+// Adds a keyword and filters
 function selectKeyword(keyword) {
     keywords.push(keyword);
     filterByKeywords();
 }
 
+// Removes a keyword and filters
 function unselectKeyword(keyword) {
     keywords = keywords.filter(k => k !== keyword);
     filterByKeywords();
 }
 
+// Clears all selections and reintializes subset to datasets
 function clearSelections() {
     subject = null;
     keywords = [];
