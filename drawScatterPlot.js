@@ -1,10 +1,10 @@
-function loadChart(){
+function loadScatterChart(){
   google.charts.load('current', {'packages':['corechart']});
-  google.charts.setOnLoadCallback(drawChart);
+  google.charts.setOnLoadCallback(drawScatterChart);
 }
 
 
-function drawChart() {
+function drawScatterChart() {
   var data = google.visualization.arrayToDataTable(getDate_FileSize());
 
   var options = {

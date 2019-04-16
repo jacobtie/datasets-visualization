@@ -10,4 +10,5 @@ fetch("datasets.json")
 
 function drawCharts() {
     drawBubbleChart();
+    loadScatterChart();
 }
