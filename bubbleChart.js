@@ -1,10 +1,19 @@
 // Draws the bubble chart with d3
 function drawBubbleChart() {
     d3.select('#bubble-diagram svg').selectAll('g').remove();
+    let keyword = false;
     if (subject === null) {
         console.log("Drawing subject bubbles");
         data = getSubjectFreqFromDatasets();
-        let root = d3.hierarchy(data);
+    } else {
+        console.log("Drawing keyword bubbles");
+        data = getKeywordFreqFromSubset();
+        if (data['children'].length > 10) {
+            data['children'] = data['children'].slice(0, 10);
+        }
+        keyword = true;
+    }
+    let root = d3.hierarchy(data);
         let packLayout = d3.pack().padding(10);
         packLayout.size([500, 500]);
         root.sum(d => d['value']);
@@ -17,14 +26,11 @@ function drawBubbleChart() {
             .append('g')
             .attr('style', 'cursor:pointer')
             .attr('transform', d => 'translate(' + [d.x, d.y] + ')')
-            .on('click', d => selectSubject(d.data.name));
+            .on('click', d => keyword ? selectKeyword(d.data.name) : selectSubject(d.data.name));
         nodes.append('circle')
             .attr('r', d => d.r)
             .attr('fill', 'white')
             .attr('stroke', 'black');
         nodes.append('text')
             .text(d => d.data.name);
-    } else {
-        console.log("Drawing keyword bubbles");
-    }
 }
