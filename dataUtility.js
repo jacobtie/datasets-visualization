@@ -34,3 +34,34 @@ function getSubjectFreqFromDatasets() {
     });
     return subjectFreq;
 }
+
+function getDate_FileSize() {
+
+    let date_filesize = subset.map(d => [d['lastUpdateTime'], d['filesize']]);
+
+    // sortDate(date_filesize)
+
+    // date_filesize.sort(funciton(a,b) {
+    //     a = new Date(a[0]);
+    //     b = new Date(b[0]);
+    //     return a>b ? -1 : a<b ? 1 : 0;
+    // });
+
+    date_filesize.sort(function(a, b) {
+        a = new Date(a[0]);
+        b = new Date(b[0]);
+    return a>b ? 1 : a<b ? -1 : 0;
+});
+
+    date_filesize.unshift(["Date", "FileSize"]);
+
+    return date_filesize;
+}
+
+// function sortDate(arr){
+
+//     arr.sort(function(a, b) {
+//     a = new Date(a[0].dateModified);
+//     b = new Date(b[0].dateModified);
+//     return a>b ? -1 : a<b ? 1 : 0;
+// });
