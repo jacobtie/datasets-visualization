@@ -10,14 +10,14 @@ function drawBubbleChart() {
         console.log(root.descendants());
         toAdd = root.descendants().filter(d => d.depth != 0);
         packLayout(root);
-        d3.select('#bubble-diagram svg')
+        nodes = d3.select('#bubble-diagram svg')
             .selectAll('circle')
             .data(toAdd)
             .enter()
             .append('g')
-            .append('circle')
-            .attr('cx', d => d.x)
-            .attr('cy', d => d.y)
+            .attr('style', 'cursor:pointer')
+            .attr('transform', d => 'translate(' + [d.x, d.y] + ')');
+        nodes.append('circle')
             .attr('r', d => d.r)
             .attr('fill', 'white')
             .attr('stroke', 'black');
