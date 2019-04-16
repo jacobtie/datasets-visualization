@@ -46,11 +46,12 @@ function getSubjectFreqFromDatasets() {
 
 function selectSubject(sub) {
     subject = sub;
+    keywords = [];
     subset = datasets.filter(d => d["subject"].includes(subject));
 }
 
 function filterByKeywords() {
-    selectSubject(subject);
+    subset = datasets.filter(d => d["subject"].includes(subject));
     subset = subset.filter(d => {
         let keep = true;
         for (k of keywords) {
@@ -71,4 +72,10 @@ function selectKeyword(keyword) {
 function unselectKeyword(keyword) {
     keywords = keywords.filter(k => k !== keyword);
     filterByKeywords();
+}
+
+function clearSelections() {
+    subject = null;
+    keywords = [];
+    subset = datasets;
 }
