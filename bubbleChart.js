@@ -9,7 +9,7 @@ function drawBubbleChart() {
         console.log("Drawing keyword bubbles");
         data = getKeywordFreqFromSubset();
         if (data['children'].length > 10) {
-            data['children'] = data['children'].slice(0, 10);
+            data['children'] = data['children'].sort((a, b) => a['value'] > b['value'] ? -1 : 1).slice(0, 10);
         }
         keyword = true;
     }
