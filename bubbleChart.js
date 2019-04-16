@@ -7,15 +7,18 @@ function drawBubbleChart() {
         let packLayout = d3.pack().padding(10);
         packLayout.size([500, 500]);
         root.sum(d => d['value']);
+        console.log(root.descendants());
+        toAdd = root.descendants().filter(d => d.depth != 0);
         packLayout(root);
         d3.select('#bubble-diagram svg')
             .selectAll('circle')
-            .data(root.descendants())
+            .data(toAdd)
             .enter()
+            .append('g')
             .append('circle')
             .attr('cx', d => d.x)
             .attr('cy', d => d.y)
-            .attr('r', d => d.r === 250 ? 0 : d.r)
+            .attr('r', d => d.r)
             .attr('fill', 'white')
             .attr('stroke', 'black');
     } else {
