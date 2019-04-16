@@ -3,6 +3,7 @@ function selectSubject(sub) {
     subject = sub;
     keywords = [];
     subset = datasets.filter(d => d["subject"].includes(subject));
+    drawCharts();
 }
 
 // Refilters the dataset into subset with the current subject and keywords
