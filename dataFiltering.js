@@ -19,6 +19,7 @@ function filterByKeywords() {
         }
         return keep;
     });
+    drawCharts();
 }
 
 // Adds a keyword and filters
@@ -38,4 +39,5 @@ function clearSelections() {
     subject = null;
     keywords = [];
     subset = datasets;
+    drawCharts();
 }
