@@ -1,3 +1,4 @@
+// Draws the bubble chart with d3
 function drawBubbleChart() {
     if (subject === null) {
         console.log("Drawing subject bubbles");

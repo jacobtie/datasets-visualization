@@ -1,3 +1,4 @@
+// Reduces an array with multiple occurances to a 2d array with num of occurances
 function reduceByFreq(arr) {
     let acc = [];
     arr.forEach(v => {
@@ -17,6 +18,7 @@ function reduceByFreq(arr) {
     return acc;
 }
 
+// Gets the keywords from the subset, formatted for a d3 hierarchy
 function getKeywordFreqFromSubset() {
     let keywordFreq = {"name": "Datasets", "children": []};
     let allKeywords = subset.flatMap(d => d["keywords"]);
@@ -26,6 +28,7 @@ function getKeywordFreqFromSubset() {
     return keywordFreq;
 }
 
+// Gets the subject from the dataset, formatted for a d3 hierarchy
 function getSubjectFreqFromDatasets() {
     let subjectFreq = {"name": "Datasets", "children": []};
     let allSubjects = datasets.flatMap(d => d["subject"]);
