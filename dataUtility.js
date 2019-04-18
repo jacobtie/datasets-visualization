@@ -54,3 +54,9 @@ function getDate_FileSize() {
 
     return date_filesize;
 }
+
+// function scatterChartClick() {
+//     subset.filter(function(el){
+//         return el.lastUpdateTime 
+//     });
+// }
