@@ -16,6 +16,7 @@ function initialize() {
 
 // Draws the charts
 function drawCharts() {
-    drawBubbleChart();
     loadScatterChart();
+    drawBubbleChart();
+    
 }
