@@ -34,8 +34,28 @@ function drawBubbleChart() {
         .attr('r', d => d.r*1.7)
         .attr('fill', 'white')
         .attr('stroke', 'black');
-    nodes.append('text')
-        .text(d => d.data.name)
+    /*nodes
+        .append("foreignObject")
         .style("text-anchor", "middle")
-        .attr("font-size", d => d.r/2.5);
+        .attr("width", d => d.r * 1.7)
+        .attr("height", d => d.r * 1.7)
+        .attr("font-size", d => d.r/2.5)
+        .append("xhtml:p")
+        .html(d => d.data.name);
+    */
+
+    nodes.append('text')
+        .style("text-anchor", "middle")
+        .attr("font-size", d => d.r/2.5)
+        .each(function (d) {
+            var arr = d.data.name.split(" ");
+            for (i = 0; i < arr.length && i < 4; i++) {
+                d3.select(this).append("tspan")
+                    .text(arr[i])
+                    .attr("dy", i ? "1.2em" : "-1.2em")
+                    .attr("x", 0)
+                    .attr("text-anchor", "middle");
+            }
+        });
+
 }
