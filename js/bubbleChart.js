@@ -14,7 +14,6 @@ function drawBubbleChart() {
         }
         keyword = true;
         end = data['children'].length === 1;
-        console.log(end);
     }
     let root = d3.hierarchy(data);
     let packLayout = d3.pack().padding(10);
@@ -41,7 +40,6 @@ function drawBubbleChart() {
         .attr('stroke', 'black');
 
     nodes.append('text')
-        .style("text-anchor", "middle")
         .attr("font-size", d => d.r/4)
         .each(function (d) {
             var arr = d.data.name.split(" ");
