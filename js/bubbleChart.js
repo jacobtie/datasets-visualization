@@ -32,11 +32,11 @@ function drawBubbleChart() {
         .on('click', d => end ? null : keyword ? selectKeyword(d.data.name) : selectSubject(d.data.name));
     
     nodes.append('title')
-        .text(d => d.data.name)
+        .text(d => d.data.name+", "+d.data.value)
 
     nodes.append('circle')
         .attr('r', d => d.r)
-        .attr('fill', 'white')
+        .attr('fill', 'lightblue')
         .attr('stroke', 'black');
 
     nodes.append('text')
