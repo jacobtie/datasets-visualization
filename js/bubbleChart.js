@@ -18,7 +18,7 @@ function drawBubbleChart() {
     }
     let root = d3.hierarchy(data);
     let packLayout = d3.pack().padding(10);
-    packLayout.size([500, 500]);
+    packLayout.size([document.getElementById('bubble-diagram').clientWidth, document.getElementById('bubble-diagram').clientHeight]);
     root.sum(d => d['value']);
     toAdd = root.descendants().filter(d => d.depth != 0);
     packLayout(root);
@@ -29,26 +29,26 @@ function drawBubbleChart() {
         .enter()
         .append('g')
         .attr('style', 'cursor:pointer')
-        .attr('transform', d => 'translate(' + [d.x*1.7, d.y*1.7] + ')')
+        .attr('transform', d => 'translate(' + [d.x, d.y] + ')')
         .on('click', d => end ? null : keyword ? selectKeyword(d.data.name) : selectSubject(d.data.name));
     
     nodes.append('title')
         .text(d => d.data.name)
 
     nodes.append('circle')
-        .attr('r', d => d.r*1.7)
+        .attr('r', d => d.r)
         .attr('fill', 'white')
         .attr('stroke', 'black');
 
     nodes.append('text')
         .style("text-anchor", "middle")
-        .attr("font-size", d => d.r/2.5)
+        .attr("font-size", d => d.r/4)
         .each(function (d) {
             var arr = d.data.name.split(" ");
             for (i = 0; i < arr.length && i < 4; i++) {
                 d3.select(this).append("tspan")
                     .text(arr[i])
-                    .attr("dy", i ? "1.2em" : "-1.2em")
+                    .attr("dy", i ? "1.2em" : "-1em")
                     .attr("x", 0)
                     .attr("text-anchor", "middle");
             }
