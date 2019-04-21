@@ -1,6 +1,7 @@
 // Draws the bubble chart with d3
 function drawBubbleChart() {
-    d3.select('#bubble-diagram svg').selectAll('g').remove();
+    document.getElementById('bubble-diagram').innerHTML = '<svg width="100%" height="100%"></svg>';
+    // d3.select('#bubble-diagram svg').selectAll('g').remove();
     let keyword = false;
     let end = false;
     if (subject === null) {

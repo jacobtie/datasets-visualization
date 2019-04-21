@@ -22,6 +22,8 @@ function drawScatterChart() {
 
   chart = new google.visualization.ScatterChart(document.getElementById('scatterplot-diagram'));
 
+  document.getElementById('scatterplot-diagram').innerHTML = '';
+
   chart.draw(data, options);
 
   google.visualization.events.addListener(chart, 'select', selectHandler);
