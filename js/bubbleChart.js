@@ -45,12 +45,12 @@ function drawBubbleChart() {
         .attr("font-size", d => d.r/4)
         .each(function (d) {
             var arr = d.data.name.split(" ");
-            for (i = 0; i < arr.length && i < 4; i++) {
+            for (i = 0; i < arr.length+1 && i < 4; i++) {
                 d3.select(this).append("tspan")
-                    .text(arr[i])
+                    .text(i == arr.length || i == 3 ? d.data.value : arr[i])
                     .attr("dy", i ? "1.2em" : "-1em")
                     .attr("x", 0)
                     .attr("text-anchor", "middle");
             }
-        });
+        })
 }
