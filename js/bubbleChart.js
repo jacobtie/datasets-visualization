@@ -22,6 +22,7 @@ function drawBubbleChart() {
     root.sum(d => d['value']);
     toAdd = root.descendants().filter(d => d.depth != 0);
     packLayout(root);
+    
     nodes = d3.select('#bubble-diagram svg')
         .selectAll('circle')
         .data(toAdd)
@@ -30,19 +31,14 @@ function drawBubbleChart() {
         .attr('style', 'cursor:pointer')
         .attr('transform', d => 'translate(' + [d.x*1.7, d.y*1.7] + ')')
         .on('click', d => end ? null : keyword ? selectKeyword(d.data.name) : selectSubject(d.data.name));
+    
+    nodes.append('title')
+        .text(d => d.data.name)
+
     nodes.append('circle')
         .attr('r', d => d.r*1.7)
         .attr('fill', 'white')
         .attr('stroke', 'black');
-    /*nodes
-        .append("foreignObject")
-        .style("text-anchor", "middle")
-        .attr("width", d => d.r * 1.7)
-        .attr("height", d => d.r * 1.7)
-        .attr("font-size", d => d.r/2.5)
-        .append("xhtml:p")
-        .html(d => d.data.name);
-    */
 
     nodes.append('text')
         .style("text-anchor", "middle")
@@ -57,5 +53,4 @@ function drawBubbleChart() {
                     .attr("text-anchor", "middle");
             }
         });
-
 }
