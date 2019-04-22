@@ -1,3 +1,7 @@
+var modal = document.getElementById('myModal');
+var span = document.getElementsByClassName("close")[0];
+var modalText = document.querySelector("#modal-text");
+
 function loadScatterChart(){
   google.charts.load('current', {'packages':['corechart']});
   google.charts.setOnLoadCallback(drawScatterChart);
@@ -28,14 +32,34 @@ function drawScatterChart() {
 }
 
 function selectHandler(e) {
+  // select point and extract info from subset
   selectedPoint = chart.getSelection()
 
   index = selectedPoint[0].row
 
   dataset = subset[index]
 
-  alert("Title: " + dataset.title + "\n\n" +
-  "URL: " + dataset.url + "\n\n" +
-  "Description: " + dataset.description + "\n\n")
+  message = "Title: " + dataset.title + "<br>" +
+  "URL: " + dataset.url + "<br>" +
+  "Description: " + dataset.description + "<br>";
 
+  //display modal and its content
+  modalText.innerHTML = message;
+
+  
+  modal.style.display = "block";
+  
+
+  //next two functions hide modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+  
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+
+  }
 }
