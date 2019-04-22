@@ -1,3 +1,9 @@
+var modal = document.getElementById('myModal');
+var span = document.getElementsByClassName("close")[0];
+var modalTitle = document.querySelector("#modal-title");
+var modalLink = document.querySelector("#modal-link");
+var modalDescription = document.querySelector("#modal-description");
+
 function loadScatterChart(){
   google.charts.load('current', {'packages':['corechart']});
   google.charts.setOnLoadCallback(drawScatterChart);
@@ -14,10 +20,6 @@ function drawScatterChart() {
     vAxis: {title: 'FileSize'},
     legend: 'none'
 
-    // hAxis: {title: "Date"},
-    // vAxis: {title: "FileSize"},
-    // width=100%,
-    // height=100%
   };
 
   chart = new google.visualization.ScatterChart(document.getElementById('scatterplot-diagram'));
@@ -30,14 +32,33 @@ function drawScatterChart() {
 }
 
 function selectHandler(e) {
+  // select point and extract info from subset
   selectedPoint = chart.getSelection()
 
   index = selectedPoint[0].row
 
   dataset = subset[index]
 
-  alert("Title: " + dataset.title + "\n\n" +
-  "URL: " + dataset.url + "\n\n" +
-  "Description: " + dataset.description + "\n\n")
+  //display modal and its content
+  modalTitle.innerHTML = "Title: " + dataset.title + "<br>";
+  modalLink.innerHTML = dataset.url + "<br>"
+  modalLink.setAttribute("href", dataset.url)
+  modalDescription.innerHTML = "Description" + dataset.description + "<br>"
 
+
+  modal.style.display = "block";
+  
+
+  //next two functions hide modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+  
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+
+  }
 }
