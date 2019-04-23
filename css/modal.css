@@ -1,4 +1,4 @@
-/* modal css sourced from w3 schools */
+/* modal css sourced from w3 schools, modified */
 
 .modal {
     display: none; 
@@ -16,10 +16,12 @@
   
   .modal-content {
     background-color: #fefefe;
-    margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 50%;
+    height: 75%;
+    overflow-y: scroll;
+    margin: auto;
   }
   
   .close {

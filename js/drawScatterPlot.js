@@ -33,32 +33,36 @@ function drawScatterChart() {
 
 function selectHandler(e) {
   // select point and extract info from subset
-  selectedPoint = chart.getSelection()
+  let selectedPoint = chart.getSelection()
+  console.log(selectedPoint);
+  if (selectedPoint.length !== 0) {
+    let tempIndex = selectedPoint[0].row;
+    console.log(tempIndex);
+    let metaData = getDate_FileSize()[tempIndex+1];
+    console.log(metaData);
+    let dataPoint = subset.filter(d => d['lastUpdateTime'] === metaData[0] && d['filesize'] === metaData[1])[0];
+    console.log(dataPoint);
+    //display modal and its content
+    modalTitle.innerHTML = dataPoint.title + "<br />";
+    modalLink.innerHTML = dataPoint.url + "<br />"
+    modalLink.setAttribute("href", dataPoint.url)
+    modalDescription.innerHTML = "<br />" + dataPoint.description + "<br />"
 
-  index = selectedPoint[0].row
 
-  dataset = subset[index - 1];
+    modal.style.display = "block";
+    
 
-  //display modal and its content
-  modalTitle.innerHTML = "Title: " + dataset.title + "<br>";
-  modalLink.innerHTML = dataset.url + "<br>"
-  modalLink.setAttribute("href", dataset.url)
-  modalDescription.innerHTML = "Description: " + dataset.description + "<br>"
-
-
-  modal.style.display = "block";
-  
-
-  //next two functions hide modal
-  span.onclick = function() {
-    modal.style.display = "none";
-  }
-  
-  
-  window.onclick = function(event) {
-    if (event.target == modal) {
+    //next two functions hide modal
+    span.onclick = function() {
       modal.style.display = "none";
     }
+    
+    
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
 
+    }
   }
 }
