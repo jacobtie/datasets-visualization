@@ -18,8 +18,8 @@ function drawScatterChart() {
     title: 'FileSize vs Date',
     hAxis: {title: 'Date'},
     vAxis: {title: 'FileSize'},
-    legend: 'none'
-
+    legend: 'none',
+    backgroundColor: 'whitesmoke'
   };
 
   chart = new google.visualization.ScatterChart(document.getElementById('scatterplot-diagram'));
