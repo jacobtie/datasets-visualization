@@ -34,14 +34,10 @@ function drawScatterChart() {
 function selectHandler(e) {
   // select point and extract info from subset
   let selectedPoint = chart.getSelection()
-  console.log(selectedPoint);
   if (selectedPoint.length !== 0) {
     let tempIndex = selectedPoint[0].row;
-    console.log(tempIndex);
     let metaData = getDate_FileSize()[tempIndex+1];
-    console.log(metaData);
     let dataPoint = subset.filter(d => d['lastUpdateTime'] === metaData[0] && d['filesize'] === metaData[1])[0];
-    console.log(dataPoint);
     //display modal and its content
     modalTitle.innerHTML = dataPoint.title + "<br />";
     modalLink.innerHTML = dataPoint.url + "<br />"
