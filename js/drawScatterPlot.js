@@ -35,32 +35,34 @@ function selectHandler(e) {
   // select point and extract info from subset
   let selectedPoint = chart.getSelection()
   console.log(selectedPoint);
-  let tempIndex = selectedPoint[0].row;
-  console.log(tempIndex);
-  let metaData = getDate_FileSize()[tempIndex+1];
-  console.log(metaData);
-  let dataPoint = subset.filter(d => d['lastUpdateTime'] === metaData[0] && d['filesize'] === metaData[1])[0];
-  console.log(dataPoint);
-  //display modal and its content
-  modalTitle.innerHTML = "Title: " + dataPoint.title + "<br>";
-  modalLink.innerHTML = dataPoint.url + "<br>"
-  modalLink.setAttribute("href", dataPoint.url)
-  modalDescription.innerHTML = "Description: " + dataPoint.description + "<br>"
+  if (selectedPoint.length !== 0) {
+    let tempIndex = selectedPoint[0].row;
+    console.log(tempIndex);
+    let metaData = getDate_FileSize()[tempIndex+1];
+    console.log(metaData);
+    let dataPoint = subset.filter(d => d['lastUpdateTime'] === metaData[0] && d['filesize'] === metaData[1])[0];
+    console.log(dataPoint);
+    //display modal and its content
+    modalTitle.innerHTML = "Title: " + dataPoint.title + "<br>";
+    modalLink.innerHTML = dataPoint.url + "<br>"
+    modalLink.setAttribute("href", dataPoint.url)
+    modalDescription.innerHTML = "Description: " + dataPoint.description + "<br>"
 
 
-  modal.style.display = "block";
-  
+    modal.style.display = "block";
+    
 
-  //next two functions hide modal
-  span.onclick = function() {
-    modal.style.display = "none";
-  }
-  
-  
-  window.onclick = function(event) {
-    if (event.target == modal) {
+    //next two functions hide modal
+    span.onclick = function() {
       modal.style.display = "none";
     }
+    
+    
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
 
+    }
   }
 }
