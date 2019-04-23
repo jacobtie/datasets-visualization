@@ -9,14 +9,12 @@ $(document).ready(() => initialize());
 function initialize() {
     fetch("js/datasets.json")
     .then(response => response.json())
-    .then(json => {console.log("Data is loaded."); subset = datasets = json})
+    .then(json => {console.log("Data is loaded."); subset = datasets = json;})
     .then(() => drawCharts());
 }
-
 
 // Draws the charts
 function drawCharts() {
     loadScatterChart();
     drawBubbleChart();
-    
 }
