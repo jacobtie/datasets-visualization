@@ -43,10 +43,10 @@ function selectHandler(e) {
     let dataPoint = subset.filter(d => d['lastUpdateTime'] === metaData[0] && d['filesize'] === metaData[1])[0];
     console.log(dataPoint);
     //display modal and its content
-    modalTitle.innerHTML = "Title: " + dataPoint.title + "<br>";
-    modalLink.innerHTML = dataPoint.url + "<br>"
+    modalTitle.innerHTML = dataPoint.title + "<br />";
+    modalLink.innerHTML = dataPoint.url + "<br />"
     modalLink.setAttribute("href", dataPoint.url)
-    modalDescription.innerHTML = "Description: " + dataPoint.description + "<br>"
+    modalDescription.innerHTML = "<br />" + dataPoint.description + "<br />"
 
 
     modal.style.display = "block";
