@@ -33,17 +33,19 @@ function drawScatterChart() {
 
 function selectHandler(e) {
   // select point and extract info from subset
-  selectedPoint = chart.getSelection()
-
-  index = selectedPoint[0].row
-
-  dataset = subset[index - 1];
-
+  let selectedPoint = chart.getSelection()
+  console.log(selectedPoint);
+  let tempIndex = selectedPoint[0].row;
+  console.log(tempIndex);
+  let metaData = getDate_FileSize()[tempIndex+1];
+  console.log(metaData);
+  let dataPoint = subset.filter(d => d['lastUpdateTime'] === metaData[0] && d['filesize'] === metaData[1])[0];
+  console.log(dataPoint);
   //display modal and its content
-  modalTitle.innerHTML = "Title: " + dataset.title + "<br>";
-  modalLink.innerHTML = dataset.url + "<br>"
-  modalLink.setAttribute("href", dataset.url)
-  modalDescription.innerHTML = "Description: " + dataset.description + "<br>"
+  modalTitle.innerHTML = "Title: " + dataPoint.title + "<br>";
+  modalLink.innerHTML = dataPoint.url + "<br>"
+  modalLink.setAttribute("href", dataPoint.url)
+  modalDescription.innerHTML = "Description: " + dataPoint.description + "<br>"
 
 
   modal.style.display = "block";
