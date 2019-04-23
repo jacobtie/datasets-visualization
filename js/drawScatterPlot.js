@@ -37,13 +37,13 @@ function selectHandler(e) {
 
   index = selectedPoint[0].row
 
-  dataset = subset[index]
+  dataset = subset[index - 1];
 
   //display modal and its content
   modalTitle.innerHTML = "Title: " + dataset.title + "<br>";
   modalLink.innerHTML = dataset.url + "<br>"
   modalLink.setAttribute("href", dataset.url)
-  modalDescription.innerHTML = "Description" + dataset.description + "<br>"
+  modalDescription.innerHTML = "Description: " + dataset.description + "<br>"
 
 
   modal.style.display = "block";
