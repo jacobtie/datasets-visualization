@@ -6,7 +6,7 @@ var modalDescription = document.querySelector("#modal-description");
 
 function loadScatterChart(){
   google.charts.load('current', {'packages':['corechart']});
-  google.charts.setOnLoadCallback(drawScatterChart);
+  // google.charts.setOnLoadCallback(drawScatterChart);
 }
 
 var chart;
@@ -42,8 +42,7 @@ function selectHandler(e) {
     modalTitle.innerHTML = dataPoint.title + "<br />";
     modalLink.innerHTML = dataPoint.url + "<br />"
     modalLink.setAttribute("href", dataPoint.url)
-    modalDescription.innerHTML = "<br />" + dataPoint.description + "<br />"
-
+    modalDescription.innerHTML = "<br />" + dataPoint.description.replace(/<a /g, '<a target="_blank" ') + "<br />"
 
     modal.style.display = "block";
     
