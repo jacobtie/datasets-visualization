@@ -6,7 +6,7 @@ var modalDescription = document.querySelector("#modal-description");
 
 function loadScatterChart(){
   google.charts.load('current', {'packages':['corechart']});
-  google.charts.setOnLoadCallback(drawScatterChart);
+  // google.charts.setOnLoadCallback(drawScatterChart);
 }
 
 var chart;
