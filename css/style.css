@@ -39,3 +39,9 @@ div#scatterplot-diagram {
     background-color: whitesmoke;
     border: 1px;
 }
+
+.loading {
+    font-size: 3em;
+    text-align: center;
+    margin: auto;
+}
