@@ -3,21 +3,19 @@ var subset;
 var subject = null;
 var keywords = [];
 
-$(document).ready(() => {
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(initialize);
-});
+$(document).ready(() => initialize());
 
-function initialize(){
+// Runs when page loads, fetches json, parses, initializes subset and dataset, and calls drawCharts()
+function initialize() {
+    loadScatterChart();
     fetch("js/datasets.json")
     .then(response => response.json())
-    .then(json => {console.log("Data is laoded."); subset = datasets = json;})
+    .then(json => {console.log("Data is loaded."); subset = datasets = json;})
     .then(() => drawCharts());
 }
 
-function drawCharts(){
+// Draws the charts
+function drawCharts() {
     drawScatterChart();
     drawBubbleChart();
 }
-
-

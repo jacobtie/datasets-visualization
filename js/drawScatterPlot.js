@@ -4,6 +4,11 @@ var modalTitle = document.querySelector("#modal-title");
 var modalLink = document.querySelector("#modal-link");
 var modalDescription = document.querySelector("#modal-description");
 
+function loadScatterChart(){
+  google.charts.load('current', {'packages':['corechart']});
+  // google.charts.setOnLoadCallback(drawScatterChart);
+}
+
 var chart;
 
 function drawScatterChart() {
