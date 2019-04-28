@@ -50,13 +50,5 @@ function getDate_FileSize() {
         return a>b ? 1 : a<b ? -1 : 0;
     });
 
-    console.log(date_filesize);
-
     return date_filesize;
 }
-
-// function scatterChartClick() {
-//     subset.filter(function(el){
-//         return el.lastUpdateTime 
-//     });
-// }
