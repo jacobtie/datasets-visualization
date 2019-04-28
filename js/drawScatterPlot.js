@@ -36,7 +36,6 @@ function selectHandler(e) {
   let selectedPoint = chart.getSelection()
   if (selectedPoint.length !== 0) {
     let tempIndex = selectedPoint[0].row;
-    //let metaData = getDate_FileSize()[tempIndex+1];
     let metaData = getDate_FileSize()[tempIndex];
     let dataPoint = subset.filter(d => d['lastUpdateTime'] === metaData[0] && d['filesize'] === metaData[1])[0];
     //display modal and its content
