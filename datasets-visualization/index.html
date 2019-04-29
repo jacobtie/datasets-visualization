@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/modal.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/searchbar"></script>
+    <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+    </link>
+    <link rel="stylesheet" href="css/bootstrap.min.css"></link> 
+    
+    <title>Dataset Visualization Tool</title>
+</head>
+<body>
+    <header>
+        <!-- Search and keyword list will appear here -->
+          
+
+        <div class="container" id="container" >
+            <div class="search-container" >
+                    
+                        
+                <img src="images/search.svg" alt="search button" id="search-btn">
+                <input type= "text" id="search" placeholder = "" list="list">
+                <p id = "tip">Hit enter to search</p>
+                <datalist id="list">
+                          
+                            
+                </datalist>
+
+            <div class="tag-container" id="tagline"> 
+                    <div class="container">
+                          
+                           
+                                    <input id="tags" />  
+                                
+                    </div>  
+            </div>
+            
+        </div>
+        
+
+            </div>
+        </div>
+    <script type="text/javascript" src="js\searchbar.js"></script>
+    </header>
+    
+    <main>
+
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1 id="modal-title">Some title</h1>
+                <span>URL: <a id="modal-link" target="_blank" href="#"></a></span>
+                <p id="modal-description">Some description</p>
+            </div>
+        
+        </div>
+        <!-- Visualizations will appear here -->
+        <div id="bubble-diagram">
+            <!-- Tree Visualization will appear here -->
+            <p class="loading">Loading data . . .</p>
+        </div>
+        <div id="scatterplot-diagram">
+            <p class="loading">Loading data . . .</p>
+            <!-- Scatterplot diagram will appear here -->
+        </div>
+    </main>
+    <footer class="page-footer font-small text-center text-muted bg-dark py-2">
+        Visualization Created by Jacob Kedar Krevat, Thomas Winterfield, and Jake Stevens
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="js/dataUtility.js"></script>
+    <script type="text/javascript" src="js/dataFiltering.js"></script>
+    <script type="text/javascript" src="js/bubbleChart.js"></script>
+    <script type="text/javascript" src="js/drawScatterPlot.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+</body>
+</html>
