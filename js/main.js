@@ -11,13 +11,14 @@ $(document).ready(() => {
 function initialize(){
     fetch("js/datasets.json")
     .then(response => response.json())
-    .then(json => {console.log("Data is laoded."); subset = datasets = json;})
-    .then(() => drawCharts());
+    .then(json => subset = datasets = json)
+    .then(() => {drawClearButton(); drawCharts();});
 }
 
 function drawCharts(){
     drawScatterChart();
     drawBubbleChart();
+    drawSearchBar();
 }
 
 

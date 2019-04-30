@@ -42,7 +42,7 @@ function getSubjectFreqFromDatasets() {
 
 function getDate_FileSize() {
 
-    let date_filesize = subset.map(d => [d['lastUpdateTime'], d['filesize']]);
+    let date_filesize = subset.map(d => [d['lastUpdateTime'], d['filesize'], d['title']]);
 
     date_filesize.sort(function(a, b) {
         a = new Date(a[0]);
@@ -50,13 +50,5 @@ function getDate_FileSize() {
         return a>b ? 1 : a<b ? -1 : 0;
     });
 
-    date_filesize.unshift(["Date", "FileSize"]);
-
     return date_filesize;
 }
-
-// function scatterChartClick() {
-//     subset.filter(function(el){
-//         return el.lastUpdateTime 
-//     });
-// }

@@ -4,10 +4,8 @@ function drawBubbleChart() {
     let keyword = false;
     let end = false;
     if (subject === null) {
-        console.log("Drawing subject bubbles");
         data = getSubjectFreqFromDatasets();
     } else {
-        console.log("Drawing keyword bubbles");
         data = getKeywordFreqFromSubset();
         if (data['children'].length > 25) {
             data['children'] = data['children'].sort((a, b) => a['value'] > b['value'] ? -1 : 1).slice(0, 25);

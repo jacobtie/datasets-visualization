@@ -7,7 +7,12 @@ var modalDescription = document.querySelector("#modal-description");
 var chart;
 
 function drawScatterChart() {
-  var data = google.visualization.arrayToDataTable(getDate_FileSize());
+  var data = new google.visualization.DataTable();
+  data.addColumn('string', 'Date');
+  data.addColumn('number', 'FileSize');
+  data.addColumn({type: 'string', role: 'tooltip'});
+
+  data.addRows(getDate_FileSize());
 
   var options = {
     title: 'FileSize vs Date',
@@ -31,7 +36,7 @@ function selectHandler(e) {
   let selectedPoint = chart.getSelection()
   if (selectedPoint.length !== 0) {
     let tempIndex = selectedPoint[0].row;
-    let metaData = getDate_FileSize()[tempIndex+1];
+    let metaData = getDate_FileSize()[tempIndex];
     let dataPoint = subset.filter(d => d['lastUpdateTime'] === metaData[0] && d['filesize'] === metaData[1])[0];
     //display modal and its content
     modalTitle.innerHTML = dataPoint.title + "<br />";
