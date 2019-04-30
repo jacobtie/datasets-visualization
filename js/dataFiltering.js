@@ -4,6 +4,7 @@ function selectSubject(sub) {
     keywords = [];
     subset = datasets.filter(d => d["subject"].includes(subject));
     drawCharts();
+    drawSubject(sub);
 }
 
 // Refilters the dataset into subset with the current subject and keywords
@@ -26,6 +27,7 @@ function filterByKeywords() {
 function selectKeyword(keyword) {
     keywords.push(keyword);
     filterByKeywords();
+    drawKeyword(keyword);
 }
 
 // Removes a keyword and filters
