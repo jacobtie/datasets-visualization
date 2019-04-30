@@ -45,3 +45,11 @@ div#scatterplot-diagram {
     text-align: center;
     margin: auto;
 }
+
+#clear {
+    margin-left: 15px;
+}
+
+#clear a {
+    color: white;
+}
