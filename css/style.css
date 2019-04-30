@@ -46,6 +46,13 @@ div#scatterplot-diagram {
     margin: auto;
 }
 
+#clear {
+    margin-left: 15px;
+}
+
+#clear a {
+    color: white;
+}
       
 select {
     display: block;
@@ -88,4 +95,3 @@ select:focus {
 select option {
     font-weight:normal;
 }
-
