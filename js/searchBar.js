@@ -7,7 +7,9 @@ function drawSearchBar() {
     const type = subject === null ? 'subject' : 'keywords';
     const options = reduceByFreq(subset.flatMap(d => d[type])).sort((a, b) => a[1] < b[1] ? 1 : -1).map(s => s[0]).slice(0,1000);
     options.forEach(o => {
-        searchBar.innerHTML += `<option value="${o}">${o}</option>`;
+        if (!keywords.includes(o)) {
+            searchBar.innerHTML += `<option value="${o}">${o}</option>`;
+        }
     });
     container.appendChild(searchBar);
 }
