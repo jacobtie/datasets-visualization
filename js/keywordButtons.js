@@ -1,7 +1,7 @@
 function drawKeyword(keyword) {
     const container = document.getElementById('keywords');
     const newDiv = document.createElement('div');
-    newDiv.className = 'keyword';
+    newDiv.className = 'keyword filtered';
     newDiv.id = keyword;
     const newA = document.createElement('a');
     newA.href = "#";
@@ -23,7 +23,7 @@ function removeKeyword(keyword) {
 function drawSubject(subject) {
     const container = document.getElementById('keywords');
     const newDiv = document.createElement('div');
-    newDiv.className = 'subject';
+    newDiv.className = 'subject filtered';
     newDiv.id = subject;
     const newA = document.createElement('a');
     newA.href = "#";
