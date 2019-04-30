@@ -48,6 +48,7 @@ div#scatterplot-diagram {
 
 #clear {
     margin-left: 15px;
+    margin-right: 15px;
 }
 
 #clear a {
@@ -62,8 +63,8 @@ select {
     color: #444;
     line-height: 1.3;
     padding: .6em 1.4em .5em .8em;
-    width: 50%;
-    max-width: 50%; 
+    width: 75%;
+    max-width: 75%; 
     box-sizing: border-box;
     margin: 0;
     border: 1px solid #aaa;
@@ -94,4 +95,8 @@ select:focus {
 }
 select option {
     font-weight:normal;
+}
+
+header div {
+    float: left;
 }
