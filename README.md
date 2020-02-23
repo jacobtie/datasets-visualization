@@ -1,1 +1,1 @@
-Dataset Visualization Final Project for ITCS 5122
+Dataset Visualization Final Project
